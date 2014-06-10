@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+
+	<servlet>
+	  <servlet-name>item</servlet-name>
+	  <servlet-class>com.ff.ShowItem</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	  <servlet-name>item</servlet-name>
+	  <url-pattern>/item</url-pattern>
+	</servlet-mapping>
+    
+    	<servlet>
+	  <servlet-name>addItem</servlet-name>
+	  <servlet-class>com.ff.AddItem</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	  <servlet-name>addItem</servlet-name>
+	  <url-pattern>/add-item</url-pattern>
+	</servlet-mapping>
+    
+	<servlet>
+	  <servlet-name>searchItem</servlet-name>
+	  <servlet-class>com.ff.SearchItem</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	  <servlet-name>searchItem</servlet-name>
+	  <url-pattern>/search-item</url-pattern>
+	</servlet-mapping>
+    
+		<servlet>
+		<servlet-name>DatabaseInteraction</servlet-name>
+		<servlet-class>com.ff.DatabaseInteractionServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>DatabaseInteraction</servlet-name>
+		<url-pattern>/databaseinteraction</url-pattern>
+	</servlet-mapping>
+	
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+</web-app>
