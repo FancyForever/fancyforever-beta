@@ -7,7 +7,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 
 	<servlet>
 	  <servlet-name>item</servlet-name>
-	  <servlet-class>com.ff.ShowItem</servlet-class>
+	  <servlet-class>ff.ShowItem</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
@@ -17,7 +17,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
     
     	<servlet>
 	  <servlet-name>addItem</servlet-name>
-	  <servlet-class>com.ff.AddItem</servlet-class>
+	  <servlet-class>ff.AddItem</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
@@ -27,7 +27,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
     
 	<servlet>
 	  <servlet-name>searchItem</servlet-name>
-	  <servlet-class>com.ff.SearchItem</servlet-class>
+	  <servlet-class>ff.SearchItem</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
@@ -37,7 +37,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
     
 		<servlet>
 		<servlet-name>DatabaseInteraction</servlet-name>
-		<servlet-class>com.ff.DatabaseInteractionServlet</servlet-class>
+		<servlet-class>ff.DatabaseInteractionServlet</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
