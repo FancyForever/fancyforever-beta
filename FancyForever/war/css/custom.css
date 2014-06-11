@@ -1,0 +1,250 @@
+
+body {
+  font-family: 'Tangerine', serif;
+  text-shadow: 4px 4px 4px #aaa;
+  background-color: red;
+}
+
+#first_page {
+	background-color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 5px;
+}
+
+#second_page {
+	background-color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 20px;
+    padding-top:20px;
+}
+
+#my-navbar {
+	background-image:linear-gradient(to bottom, rgba(255, 0, 0, 1) 0%, rgba(135, 2, 2, 1) 100%);
+	border: None;
+}
+
+#my-carousel {
+	border=2px;
+}
+.navbar .nav > li > a {
+    float: none;
+    line-height: 19px;
+    padding: 9px 10px 11px;
+    text-decoration: none;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    color:  #ddd;
+}
+
+#my-dyn-container {
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.glyphicon-filter {
+	font-size: 35px;
+	top: 1px;
+	left: 4px;
+	color: red;
+}
+#dress_filter {
+	position: fixed;
+	top: 175px;
+	left: -151px;
+	z-index: 9000;
+	padding: 10px 10px 10px 7px;
+	width: 150px;
+	hight: 300px;
+	border: 1px solid #646464;
+	border-left: none;
+	background-color: #e8e8e8;
+	-webkit-box-shadow: 1px 0px 1px #777;
+	-moz-box-shadow: 1px 0px 1px #777;
+	box-shadow: 1px 0px 1px #777;
+	color: #7d7d7d;
+	font-size: 15px;
+	transition: 0.5s;
+}
+
+#dress_filter_label {
+position: absolute;
+top: 20px;
+right: -46px;
+width: 46px;
+height: 46px;
+border: 1px solid #646464;
+border-left: none;
+-webkit-border-radius: 0 4px 4px 0;
+-moz-border-radius: 0 4px 4px 0;
+border-radius: 0 4px 4px 0;
+background: no-repeat center center #e8e8e8;
+-webkit-box-shadow: 1px 0px 1px #777;
+-moz-box-shadow: 1px 0px 1px #777;
+box-shadow: 1px 0px 1px #777;
+}
+
+#dress_filter.slide {
+	transition: 0.5s;
+	left:0px;
+}
+
+#color_schema a {
+background-position: 50% 50%;
+background-repeat: no-repeat;
+}
+
+/* The CSS */
+select {
+    padding:3px;
+    margin: 0;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    background: #f8f8f8;
+    color:#888;
+    border:none;
+    outline:none;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+}
+a {
+text-decoration: none;
+outline: none;
+}
+
+
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  font-family:None;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+
+.navbar-brand{
+	padding:10px;
+}
+
+.nav.affix {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    /**max-width: 1140px;**/
+}
+	
+div.container-fluid {
+	font-size: 16px;
+}
+div.addthis_toolbox {
+	width:180px;
+	margin: 0 auto;
+}
+
+        #sp-page {
+            background-color: darkgray;
+            color: whitesmoke;
+        }
+        #sp-page > p {
+            padding: 10px;
+        }
+
+.my-header-margin {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.myCart {
+	background-color: rgba(233, 148, 54, 1);
+	height: 32px;
+	border-radius: 65px;
+	display: inline-flex;
+}
+
+.my-social {
+	background-color: rgba(233, 148, 54, 1);
+	height: 32px;
+	border-radius: 10px;
+	display: inline-flex;
+}
+
+.my-btn-cart {
+	padding: 8px
+	
+}
+.linediv-r {
+   border-right: 2px white solid;
+   height: 20px;
+   margin-top: 5px;
+}
+
+.linediv-c {
+   height: 20px;
+   margin-top: 5px;
+}
+
+.icon-cart {
+	margin-top: 0px;
+	font-size: 0.9em;
+}
+
+.my-navbar {
+	background-color: rgba(233, 148, 54, 1);
+	border: 1px black solid;
+	border-radius: 65px;	
+}
+
+.carousel-control.right {
+	background-image: none;
+}
+
+.carousel-control.left {
+	background-image: none;
+}
+
+.slide-animate-container {
+  position:relative;
+  background:white;
+  border:1px solid black;
+  height:auto;
+  overflow:hidden;
+}
+ 
+.slide-animate {
+  padding:10px;
+}
+ 
+.slide-animate.ng-enter, .slide-animate.ng-leave {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+ 
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  display:block;
+  padding:10px;
+}
+ 
+.slide-animate.ng-enter {
+  top:-50px;
+}
+.slide-animate.ng-enter.ng-enter-active {
+  top:0;
+}
+ 
+.slide-animate.ng-leave {
+  top:0;
+}
+.slide-animate.ng-leave.ng-leave-active {
+  top:50px;
+}

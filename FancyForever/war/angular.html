@@ -1,0 +1,49 @@
+<!doctype html>
+<html data-ng-app="demoApp">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>angular</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+  </head>
+
+  <body>
+  	<div>
+  		<div data-ng-view=""></div>
+  	</div>
+    <script>
+        var demoApp = angular.module('demoApp', [])
+        .factory('simpleFactory', function () {
+        	var factory = {};
+        	var customers = [
+    						{name:'Nirmal', city:'Hyderabad'}, 
+    						{name: 'Chandra', city:'Durgapur'}, 
+    						{name: 'Tudu', city: 'Kolkata'}, 
+    						{name: 'tattu', city: 'Durgapur'}];
+			factory.getCustomers = function() {
+				return customers;
+			};
+			return factory;
+		})
+		.controller('SimpleController', function ($scope, simpleFactory) {
+			$scope.customers = simpleFactory.getCustomers();
+			$scope.addCustomer = function() {
+        		$scope.customers.push({name: $scope.newCustomer.name, city: $scope.newCustomer.city});
+        	};  	    				
+		});    						
+        demoApp.config(function($routeProvider) {
+        	$routeProvider
+        		.when('/', 
+        			{
+        				controller: 'SimpleController',
+        				templateUrl: 'partial/view1.html',
+        			})
+        		.when('/partial2', 
+        			{
+        				controller: 'SimpleController',
+        				templateUrl: 'partial/view2.html',
+        			})
+        		.otherwise({ redirectTo: '/'});
+        });
+    </script>    
+  </body>
+</html>

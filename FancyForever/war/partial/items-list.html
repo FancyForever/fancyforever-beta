@@ -1,0 +1,16 @@
+    <div class="row">
+    	<div ng-repeat="item in items_list">
+            <div class="col-sm-1 col-lg-4">
+            <a href="#" class="thumbnail">
+	            <img src="{{item.img}}" alt="..." />
+            </a>            
+            <div class="caption">
+        		<h3>{{item.short_desc}} - Rs: {{item.price}}</h3>
+        		<p> {{item.long_desc}}</p>
+        		<p><a ng-click="addItem(item)" class="btn btn-primary" role="button"  data-toggle="modal" data-target="#myModal">Add to cart</a>
+		  			<div ng-include src="'partial/order_page.html'"></div>  			
+        		</p>
+	      </div>
+        </div>
+        </div>
+    </div>

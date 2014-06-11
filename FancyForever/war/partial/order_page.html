@@ -1,0 +1,31 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Cart Summary</h4>
+      </div>
+      <div class="modal-body">
+			<table width="100%">
+				<tbody>
+					<tr ng-repeat="row in cart_items">
+						<td><img src="{{row.img}}" width="40px"/></td>
+						<td>{{row.short_desc}}</td>
+						<td>{{row.price}}</td>
+						<td><a ng-click="deleteItem($index)">delete</a></td>
+					</tr>
+					<tr>
+						<td>Total item(s) {{no_items}}</td>
+						<td></td>
+						<td>Total cost: Rs. {{cost}}</td>
+					</tr>
+				</tbody>
+			</table>
+</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Ignore</button>
+        <button type="button" class="btn btn-primary">Checkout</button>
+      </div>
+    </div>
+  </div>
+</div>
