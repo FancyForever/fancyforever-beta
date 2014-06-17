@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="com.google.appengine.api.datastore.Entity" %>
+<%@ page import="java.util.List" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -60,7 +63,7 @@
 	            </tr>
 	                <tr>
 	                    <td><a href="/item?id=<c:out value="${item.key.id}" />"><c:out value="${item.properties.name}" /></a></td>
-	                    <td><img src='<c:out value="${item.properties.primaryImage}" />=s50'/></td>
+	                    <td><img src='<c:out value="${images[0].properties.url}" />=s50'/></td>
 	                    <td><c:out value="${item.properties.brand}" /></td>
 	                    <td><c:out value="${item.properties.gender}" /></td>
 	                    <td><c:out value="${item.properties.category}" /></td>
@@ -73,28 +76,24 @@
 	        </table>
 		</div>
 
-
 		<div class="zoom-wrapper" style="width:960px; margin: 0 auto;">
 			<div class="zoom-left">
-				<img style="border:1px solid #e8e8e6;" id="zoom_09" src="<c:out value="${item.properties.primaryImage}" />" data-zoom-image="<c:out value="${item.properties.primaryImage}" />" width="411">
+				<img style="border:1px solid #e8e8e6;" id="zoom_09" src="<c:out value="${images[0].properties.url}" />" data-zoom-image="<c:out value="${item.properties.primaryImage}" />" width="411">
 		
 				<div id="gallery_09">
 				 
-					<a href="#" class="elevatezoom-gallery active" data-update="" data-image="<c:out value="${item.properties.primaryImage}" />" data-zoom-image="<c:out value="${item.properties.primaryImage}" />">
-						<img src="<c:out value="${item.properties.primaryImage}" />=s100"  width="90">
-					</a>
-					
-					<a href="#" class="elevatezoom-gallery" data-image="<c:out value="${item.properties.moreImage1}" />" data-zoom-image="<c:out value="${item.properties.moreImage1}" />">
-						<img src="<c:out value="${item.properties.moreImage1}" />=s100"  width="90">
-					</a>
-					
-					<a href="#" class="elevatezoom-gallery" data-image="<c:out value="${item.properties.moreImage2}" />" data-zoom-image="<c:out value="${item.properties.moreImage2}" />">
-					     <img src="<c:out value="${item.properties.moreImage2}" />=s100"  width="90">
-					</a>
-					
-					<a href="#" class="elevatezoom-gallery" data-image="<c:out value="${item.properties.moreImage3}" />" data-zoom-image="<c:out value="${item.properties.moreImage3}" />">
-						<img src="<c:out value="${item.properties.moreImage3}" />=s100" width="90">
-					</a>
+					<%
+						List<Entity> images = (List<Entity>) request.getAttribute("images");
+						for (Entity image : images) {
+							pageContext.setAttribute("url", image.getProperty("url"));
+					%>
+			
+							<a href="#" class="elevatezoom-gallery active" data-update="" data-image="${url}" data-zoom-image="${url}">
+								<img src="${url}=s100"  width="90">
+							</a>
+					<% 
+						} 
+					%>
 				</div>
 			</div>
 

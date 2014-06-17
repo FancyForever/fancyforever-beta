@@ -156,31 +156,31 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="bold">Primary Image<span class="mandatory">*</span></td>
+					<td class="bold">Image<span class="mandatory">*</span></td>
 					<td>
-						<img src='<c:out value="${item.properties.primaryImage}" />=s50'/>
-					    <input type="file" name="primaryImage" id="primaryImage">
 			            <table class="tc-tbl-no-bdr" width="100%" cellspacing="0" cellpadding="0">
 			                <tr>
 			                    <td style="border:none">
-			                        <div id="imageRow" style="display:none" class="sm-ft">
+			                    	<input type="hidden" name="primaryImageFlag" id="primaryImageFlag" value="0" />
+			                        <div id="imageRow" style="display:none" class="sm-ft float-l">
 			                            <input type="hidden" name="imageRowCounter" id="imageRowCounter" value="0" />
-			                            <input type="file" id="moreImage" name="moreImage">
-			                            &nbsp;&nbsp;&nbsp;
-			                            <input type="image" id="deleteImageRow" 
+			                            <input type="file" id="primaryImage" name="primaryImage">
+										<input type="radio" name="primaryImage" id="primaryImage" value="primaryImage"> Is Primary?
+			                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<input type="image" id="deleteImageRow" 
 			                                                name="deleteImageRow" 
 			                                                src="/images/delete.gif"
 			                                                style="width:15px;padding-top:5px;"
 			                                                class="aln-mdl" 
 			                                                title="Delete Row" 
 			                                                alt="Delete Row" 
-			                                                onclick="deleteRow(event, 'imageRow', false); return false;" />
+			                                                onclick="deleteRow(event, 'primaryImage', true); return false;" />
 			                        </div>
 			                    <td>
 			                </tr>
 			                <tr>
 			                    <td style="border:none">
-			                        <span class="link float-r" onclick="javascript:insertRow('imageRow');" title="Add Another Image">Add More Image ...</span>
+			                        <span class="link float-l top-pad-10 ltf-pad-5" onclick="javascript:insertRow('imageRow');" title="Add Image">[Add More Image]</span>
 			                    </td>
 			                </tr>
 			            </table>
@@ -201,17 +201,22 @@
 		    
 		</form>
 		<script>
-			
 			$( document ).ready(function() {
-				$("#gender").val("${item.properties.gender}");
-				$("#category").val("${item.properties.category}");
-				$("#sub_category").val("${item.properties.sub_category}");
-				$("#brand").val("${item.properties.brand}");
-				$("#fabric").val("${item.properties.fabric}");
-				$("#fitting").val("${item.properties.fitting}");
-				$("#washtype").val("${item.properties.washtype}");
-				$("#description").val("${item.properties.description}");
-				/*$("#primaryImage").hide();*/
+				insertRow('imageRow');
+				if ("${item.properties}" != "") {
+					$("#gender").val("${item.properties.gender}");
+					$("#category").val("${item.properties.category}");
+					$("#sub_category").val("${item.properties.sub_category}");
+					$("#brand").val("${item.properties.brand}");
+					$("#fabric").val("${item.properties.fabric}");
+					$("#fitting").val("${item.properties.fitting}");
+					$("#washtype").val("${item.properties.washtype}");
+					$("#description").val("${item.properties.description}");
+					$("#primaryImage").hide();
+					for(var i=1; i < "${item.properties.image_count}"; i++) {
+						$( "#images" ).append( "<img src='<c:out value="${item.properties.moreImage1}" />=s50'/>");
+					}
+				}
 			});
 			
 		    $(".dialog_box").click(function() {
@@ -222,8 +227,9 @@
 			function callOnClickAdd() {
 				reset();
 				var error = validate();
-				if(error == 0)
+				if(error == 0) {
 					document.getElementById('add-item-form').submit();
+				}
 			}
 			
 			function validate() {
@@ -233,10 +239,24 @@
 					error = 1;
 					document.getElementById('name').style.border = "1px solid red";
 				}
-				var primaryImage = document.getElementById('primaryImage').value;
-				if(primaryImage == "") {
+				if(getValueForMultipleRows('imageRowCounter', 'moreImage', 'image') == -1)
+		        {
+		            error = 1;
+		        }
+				// Primary Image
+				var primaryFound = 0;
+				var elements = document.getElementsByName('primaryImage');
+				for(var i=0; i<=elements.length; i++) {
+					if(elements[i] && elements[i].checked)
+					{
+						primaryFound = 1;
+						$("#primaryImageFlag").val(elements[i].value);
+						break;
+					}
+				}
+				if (!error && !primaryFound) {
+					alert('Select Primary Image');
 					error = 1;
-					document.getElementById('primaryImage').style.border = "1px solid red";
 				}
 				return error;
 			}
@@ -247,8 +267,12 @@
 			
 			function reset() {
 				document.getElementById('name').style.border = "";
-				document.getElementById('primaryImage').style.border = "";
-			}
+		        var counter = $('#imageRowCounter').val();
+		        for(var i = 1; i <= counter; i++)
+		        {
+		        	$('#moreImage' + i).css({'border' : 'none'});
+		        }
+		    }
 		</script>
 	</body>
 </html>

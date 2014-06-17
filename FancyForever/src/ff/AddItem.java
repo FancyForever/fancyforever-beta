@@ -15,8 +15,10 @@ import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.EntityNotFoundException;
+import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
+import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.images.ImagesService;
 import com.google.appengine.api.images.ImagesServiceFactory;
 import com.google.appengine.api.images.ServingUrlOptions;
@@ -38,22 +40,28 @@ public class AddItem extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		Entity item = null;
 		
-		String itemId = req.getParameter("id");
-		if(itemId != null) {
-			Long id = Long.parseLong(itemId.trim());
-			if(id != null) {
-				Key key = KeyFactory.createKey("item", id);
-				try {
-					item = datastoreService.get(key);
-				} catch (EntityNotFoundException e) {
-					e.printStackTrace();
-				}
+		Entity item = null;
+		List<Entity> images = null;
+		
+		String sId = req.getParameter("id");
+		Long id = null;
+		if (sId != null)
+			id = Long.parseLong(req.getParameter("id"));
+		if(id != null) {
+			Key key = KeyFactory.createKey("item", id);
+			Query imageQuery = new Query("image").setAncestor(key);  
+			try {
+				item = datastoreService.get(key);
+				images = datastoreService.prepare(imageQuery)
+                        .asList(FetchOptions.Builder.withDefaults());
+			} catch (EntityNotFoundException e) {
+				e.printStackTrace();
 			}
 		}
 
 		req.setAttribute("item", item);
+		req.setAttribute("images", images);
 		req.getRequestDispatcher("/add-item.jsp").forward(req, resp);
 	}
 	
@@ -82,6 +90,8 @@ public class AddItem extends HttpServlet {
 			}
 		}
 
+		String primaryImageFlag = req.getParameter("primaryImageFlag").trim();
+		System.out.println(primaryImageFlag);
 		Entity item = new Entity("item");
 		String name = req.getParameter("name").trim();
 		item.setProperty("name", name);
@@ -104,12 +114,21 @@ public class AddItem extends HttpServlet {
 		String description = req.getParameter("description").trim();
 		item.setProperty("description", description);
 		
-		for(String key : images.keySet()) {
-			item.setProperty(key, images.get(key));
-		}
 		item.setProperty("image_count", images.keySet().size());
 		
 		Key key = datastoreService.put(item);
+		
+		int count = 0;
+		for(String k : images.keySet()) {
+			Entity image = new Entity("image", key);
+			System.out.println(k);
+			int primary = k.equalsIgnoreCase(primaryImageFlag) ? 1 : 0;
+			System.out.println(primary);
+			image.setProperty("primary", primary);
+			image.setProperty("url", images.get(k));
+			image.setProperty("imgCount", count++);
+			datastoreService.put(image);
+		}
 
 		resp.sendRedirect("/item?id="+key.getId());
 		

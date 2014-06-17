@@ -9,7 +9,10 @@ function updateId(element, counter)
     var theId   = element.id;
     if(theId) {
         element.id = theId + '' + counter;
-        element.name = theId + '' + counter;
+        if(element.type != "radio")
+        	element.name = theId + '' + counter;
+        else
+        	element.value = theId + '' + counter;
     }
 }
 
@@ -35,7 +38,7 @@ function deleteRow(event, eleToDelete, mandatory)
     // Check if this is a mandatory attr. If yes, atleast one row has to be present
     if(mandatory)
     {
-        var elements = document.getElementsByName(eleToDelete + 'Counter');
+        var elements = document.getElementsByName(eleToDelete);
         if(elements.length <= 2)
         {
             alert("Atleast one row is required.");
@@ -50,3 +53,23 @@ function deleteRow(event, eleToDelete, mandatory)
     rowToDelete.parentNode.removeChild(rowToDelete);
     return;
 }
+
+
+function getValueForMultipleRows(counterId, elementId, msg)
+{
+    var counter = $('#' + counterId).val();
+    var error = 0;
+    for(var i = 1; i <= counter; i++)
+    {
+    	var data = new String($('#' + elementId + i).val());
+        data = $.trim(data);
+        if(data == '' || data <= 0 || data == '-')
+        {
+            error = 1;
+            $('#' + elementId + i).css({'border' : '1px solid red'});
+            $('#' + elementId + i).css({'float' : 'left'});
+        }
+    }
+    return error;
+}
+	

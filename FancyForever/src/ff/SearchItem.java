@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.EntityNotFoundException;
+import com.google.appengine.api.datastore.FetchOptions;
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.CompositeFilterOperator;
@@ -32,9 +36,10 @@ public class SearchItem extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 
-		String all_items = req.getParameter("all_items");
-		String in_stock = req.getParameter("in_stock");
-
+		String output 		= req.getParameter("output");
+		String all_items 	= req.getParameter("all_items");
+		String in_stock 	= req.getParameter("in_stock");
+/*
 		@SuppressWarnings("unchecked")
 		Map<String, String[]> params = req.getParameterMap();
 
@@ -50,8 +55,8 @@ public class SearchItem extends HttpServlet {
 			}
 		}
 
-		Query query = new Query("item");
-
+*/		Query query = new Query("item");
+/*
 		if (filters.size() > 1) {
 			Filter filter = CompositeFilterOperator.and(filters);
 
@@ -59,15 +64,37 @@ public class SearchItem extends HttpServlet {
 		} else if(filters.size() > 0 )
 			query.setFilter(filters.get(0));
 
-		PreparedQuery pq = datastore.prepare(query);
+*/		PreparedQuery pq = datastore.prepare(query);
 
 		List<Entity> items = new ArrayList<Entity>();
+		List<Entity> images = null;
 		for (Entity item : pq.asIterable()) {
+			System.out.println(item.getProperties().get("name"));
+			System.out.println(item.getKey().getId());
 			items.add(item);
-		}
+			Key key = KeyFactory.createKey("item", item.getKey().getId());
+			Query imageQuery = new Query("image").setAncestor(key);  
+			images = datastore.prepare(imageQuery)
+			        .asList(FetchOptions.Builder.withDefaults());
+			for(Entity image : images)
+			{
+				String strPrimary = image.getProperty("primary").toString();
+				System.out.println("Primary - " + strPrimary);
+				int primary = Integer.parseInt(strPrimary);
+				if(primary == 1) {
+					item.setProperty("primaryImg", image.getProperty("url"));
+					System.out.println(image.getProperty("url"));
+				}
+			}
+			System.out.println(images.size());
+	}
 
 		req.setAttribute("items", items);
-		req.getRequestDispatcher("/search-item.jsp").forward(req, resp);
+		req.setAttribute("images", images);
+		if(output != null && output.equals("json"))
+			req.getRequestDispatcher("/item-json.jsp").forward(req, resp);
+		else
+			req.getRequestDispatcher("/search-item.jsp").forward(req, resp);
 	}
 
 	private List<String> convertCSVToList(String val) {
