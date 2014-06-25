@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html  data-ng-app="demoApp">
+  <head>
+    <title>Dress For Less</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="css/external/owl.carousel.css">
+	<link rel="stylesheet" href="css/external/owl.theme.css">
+	<link rel="stylesheet" href="css/external/owl.transitions.css">
+    <link rel="stylesheet" href="css/ff/custom.css">
+    	
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>                
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  </head>
+  
+  
+  <body>
+  <div class="container" id="colored-hdr"></div>
+	<div class="container">
+	<div class="row">
+	<div class="lg-col-3"><img src="images/frontend/logo/merged_logo.png" class="img-responsive"></div>
+	<div class="lg-col-9">
+	<nav class="navbar navbar-default" role="navigation" id="my-navbar">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Browse <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Boys</a></li>
+            <li><a href="#">Girls</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Festive Wear</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Party Wear</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span><b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">0 items</a></li>
+            <li><a href="#">Price: 0</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Checkout</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Contact Us</a></li>        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+	
+	</div>
+	</div>
+	</div>
+	
+	<!-- ITEMS browse -->
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3">
+				<ul class="list-group">
+				<li class="nav-header list-group-item">
+  					<a href="#" data-toggle="collapse" data-target="#boysMenu" style="text-decoration:none">
+    					<span class="label label-danger">Today's deal</span> <i class="glyphicon glyphicon-chevron-down"></i>
+  					</a>
+  					<ul style="list-style: none;" class="collapse in" id="boysMenu">
+    					<li><a href="#"  style="text-decoration:none">All <span class="badge badge-info">100</span></a></li>
+	    				<li><a href="#"  style="text-decoration:none">3-4 Years <span class="badge badge-info">10</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">4-5 Years <span class="badge badge-info">10</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">5-6 Years <span class="badge badge-info">15</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">6-7 Years <span class="badge badge-info">15</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">7-8 Years <span class="badge badge-info">20</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">8-9 Years <span class="badge badge-info">10</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">9-10 Years <span class="badge badge-info">10</span></a></li>
+  					</ul>
+				</li>
+				<li class="nav-header list-group-item" id="my-nav-header">
+  					<a href="#" data-toggle="collapse" data-target="#girlsMenu" style="text-decoration:none">
+    					<span class="label label-danger">Girls</span> <i class="glyphicon glyphicon-chevron-right"></i>
+  					</a>
+	  				<ul style="list-style: none;" class="collapse" id="girlsMenu">
+    					<li><a href="#"  style="text-decoration:none">All <span class="badge badge-info">100</span></a></li>
+	    				<li><a href="#"  style="text-decoration:none">3-4 Years <span class="badge badge-info">10</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">4-5 Years <span class="badge badge-info">10</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">5-6 Years <span class="badge badge-info">15</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">6-7 Years <span class="badge badge-info">15</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">7-8 Years <span class="badge badge-info">20</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">8-9 Years <span class="badge badge-info">10</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">9-10 Years <span class="badge badge-info">10</span></a></li>
+  					</ul>
+				</li>
+				<li class="nav-header list-group-item" id="my-nav-header">
+					<a href="#" data-toggle="collapse" data-target="#ethnicMenu" style="text-decoration:none">
+    					<span class="label label-danger">Boys</span> <i class="glyphicon glyphicon-chevron-right"></i>
+  					</a>
+  					<ul style="list-style: none;" class="collapse" id="ethnicMenu">
+    					<li><a href="#"  style="text-decoration:none">All <span class="badge badge-info">100</span></a></li>
+	    				<li><a href="#"  style="text-decoration:none">3-4 Years <span class="badge badge-info">10</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">4-5 Years <span class="badge badge-info">10</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">5-6 Years <span class="badge badge-info">15</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">6-7 Years <span class="badge badge-info">15</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">7-8 Years <span class="badge badge-info">20</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">8-9 Years <span class="badge badge-info">10</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">9-10 Years <span class="badge badge-info">10</span></a></li>
+  					</ul>
+				</li>				
+				<li class="nav-header list-group-item" id="my-nav-header">
+					<a href="#" data-toggle="collapse" data-target="#partyMenu" style="text-decoration:none">
+    					<span class="label label-danger">Ethnic</span> <i class="glyphicon glyphicon-chevron-right"></i>
+  					</a>
+  					<ul style="list-style: none;" class="collapse" id="partyMenu">
+    					<li><a href="#"  style="text-decoration:none">All <span class="badge badge-info">100</span></a></li>
+	    				<li><a href="#"  style="text-decoration:none">3-4 Years <span class="badge badge-info">10</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">4-5 Years <span class="badge badge-info">10</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">5-6 Years <span class="badge badge-info">15</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">6-7 Years <span class="badge badge-info">15</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">7-8 Years <span class="badge badge-info">20</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">8-9 Years <span class="badge badge-info">10</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">9-10 Years <span class="badge badge-info">10</span></a></li>
+  					</ul>
+				</li>
+				<li class="nav-header list-group-item" id="my-nav-header">
+					<a href="#" data-toggle="collapse" data-target="#dealsMenu" style="text-decoration:none">
+    					<span class="label label-danger">Party</span> <i class="glyphicon glyphicon-chevron-right"></i>
+  					</a>
+  					<ul style="list-style: none;" class="collapse" id="dealsMenu">
+    					<li><a href="#"  style="text-decoration:none">All <span class="badge badge-info">100</span></a></li>
+	    				<li><a href="#"  style="text-decoration:none">3-4 Years <span class="badge badge-info">10</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">4-5 Years <span class="badge badge-info">10</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">5-6 Years <span class="badge badge-info">15</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">6-7 Years <span class="badge badge-info">15</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">7-8 Years <span class="badge badge-info">20</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">8-9 Years <span class="badge badge-info">10</span></a></li>
+    					<li><a href="#"  style="text-decoration:none">9-10 Years <span class="badge badge-info">10</span></a></li>
+  					</ul>
+				</li>				
+				</ul>
+			</div>
+			<div class="col-lg-3" id="item-thumbnails">
+				<div class="row">
+				    <div class="thumbnail">
+      					<img src="images/assets/owl1.jpg" alt="...">
+      					<div class="caption">
+        					<h3>Thumbnail label</h3>
+        					<p>...</p>
+        					<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      					</div>
+    				</div>
+				</div>
+				<div class="row">
+				    <div class="thumbnail">
+      					<img src="images/assets/owl2.jpg" alt="...">
+      					<div class="caption">
+        					<h3>Thumbnail label</h3>
+        					<p>...</p>
+        					<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      					</div>
+    				</div>
+				</div>
+				<div class="row">
+				    <div class="thumbnail">
+      					<img src="images/assets/owl3.jpg" alt="...">
+      					<div class="caption">
+        					<h3>Thumbnail label</h3>
+        					<p>...</p>
+        					<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      					</div>
+    				</div>
+				</div>
+				<div class="row">
+				    <div class="thumbnail">
+      					<img src="images/assets/owl4.jpg" alt="...">
+      					<div class="caption">
+        					<h3>Thumbnail label</h3>
+        					<p>...</p>
+        					<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      					</div>
+    				</div>
+				</div>
+				
+			</div>
+			<div class="col-lg-3">
+				<div class="row">
+				    <div class="thumbnail">
+      					<img src="images/assets/owl5.jpg" alt="...">
+      					<div class="caption">
+        					<h3>Thumbnail label</h3>
+        					<p>...</p>
+        					<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      					</div>
+    				</div>
+				</div>			
+				<div class="row">
+				    <div class="thumbnail">
+      					<img src="images/assets/owl6.jpg" alt="...">
+      					<div class="caption">
+        					<h3>Thumbnail label</h3>
+        					<p>...</p>
+        					<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      					</div>
+    				</div>
+				</div>
+				<div class="row">
+				    <div class="thumbnail">
+      					<img src="images/assets/owl7.jpg" alt="...">
+      					<div class="caption">
+        					<h3>Thumbnail label</h3>
+        					<p>...</p>
+        					<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      					</div>
+    				</div>
+				</div>
+				<div class="row">
+				    <div class="thumbnail">
+      					<img src="images/assets/owl8.jpg" alt="...">
+      					<div class="caption">
+        					<h3>Thumbnail label</h3>
+        					<p>...</p>
+        					<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      					</div>
+    				</div>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="row">
+				    <div class="thumbnail">
+      					<img src="images/assets/owl1.jpg" alt="...">
+      					<div class="caption">
+        					<h3>Thumbnail label</h3>
+        					<p>...</p>
+        					<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      					</div>
+    				</div>
+				</div>			
+				<div class="row">
+				    <div class="thumbnail">
+      					<img src="images/assets/owl2.jpg" alt="...">
+      					<div class="caption">
+        					<h3>Thumbnail label</h3>
+        					<p>...</p>
+        					<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      					</div>
+    				</div>
+				</div>
+				<div class="row">
+				    <div class="thumbnail">
+      					<img src="images/assets/owl3.jpg" alt="...">
+      					<div class="caption">
+        					<h3>Thumbnail label</h3>
+        					<p>...</p>
+        					<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      					</div>
+    				</div>
+				</div>
+				<div class="row">
+				    <div class="thumbnail">
+      					<img src="images/assets/owl4.jpg" alt="...">
+      					<div class="caption">
+        					<h3>Thumbnail label</h3>
+        					<p>...</p>
+        					<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      					</div>
+    				</div>
+				</div>
+			</div>			
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+	
+		$('[data-toggle=collapse]').click(function(){
+	
+  			// toggle icon
+  			$(this).find("i").toggleClass("glyphicon glyphicon-chevron-right glyphicon glyphicon-chevron-down");
+  
+		});
+
+		$('.collapse').on('show', function (e) {
+  
+  			// hide open menus
+  			$('.collapse').each(function(){
+      		if ($(this).hasClass('in')) {
+          		$(this).collapse('toggle');
+      		}
+    	});
+  
+		})
+	</script>
+	<!-- <div class="container"  id="colored-hdr">		
+	</div> -->
+	
+		<div class="container"  id="colored-hdr">		
+	</div>
+
+	<div class="container">
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>© 2013 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+      </footer>
+
+    </div><!-- /.container -->
+	
+</body>
+</html>

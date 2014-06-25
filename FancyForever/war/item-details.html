@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html  data-ng-app="demoApp">
+  <head>
+    <title>Dress For Less</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="css/external/owl.carousel.css">
+	<link rel="stylesheet" href="css/external/owl.theme.css">
+	<link rel="stylesheet" href="css/external/owl.transitions.css">
+	<link rel="stylesheet" href="css/external/datepicker.css">
+    <link rel="stylesheet" href="css/ff/custom.css">
+    	
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>                
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  </head>
+  
+  
+  <body>
+  <div class="container" id="colored-hdr"></div>
+	<div class="container" id="my-header">
+	<div class="row">
+	<div class="lg-col-3"><img src="images/frontend/logo/merged_logo.png" class="img-responsive"></div>
+	<div class="lg-col-9">
+	<nav class="navbar navbar-default" role="navigation" id="my-navbar">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Browse <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Boys</a></li>
+            <li><a href="#">Girls</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Festive Wear</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Party Wear</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span><b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">0 items</a></li>
+            <li><a href="#">Price: 0</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Checkout</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Contact Us</a></li>        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+	
+	</div>
+	</div>
+	</div>
+	
+	<div class="container">
+
+        <div class="row">
+
+            <div class="col-md-3">
+            	<form role="form">
+            		<div class="form-group">
+            	    	<label class="control-label">Delivery Date</label>
+    					<div class="input-group date" id="dp3" data-date="getDate()" data-date-format="mm-dd-yyyy">
+      						<input class="form-control" type="text" value="">
+      							<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+    					</div>
+            		</div>
+  					<div class="form-group">
+    					<label for="exampleInputEmail1">Email address</label>
+    						<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+  					</div>
+  					<div class="checkbox">
+    					<label>
+      						<input type="checkbox"> Flexible return date
+    					</label>
+  					</div>
+  					<button type="submit" class="btn btn-default">Checkout</button>
+				</form>
+            </div>
+
+            <div class="col-md-9">
+
+                <div class="thumbnail">
+                    <img class="img-responsive" src="images/assets/owl1.jpg" alt="">
+                    <div class="caption-full">
+                        <h4 class="pull-right">Rs. 2499</h4>
+                        <h4><a href="#">Awsome Owl</a>
+                        </h4>
+                        <p>Owls, birds of the order Strigiformes, include about 200 species of mostly solitary and nocturnal birds of prey typified by an upright stance, a large, broad head, binocular vision and binaural hearing, and feathers adapted for silent flight.</p>
+                    </div>
+                    <div class="ratings">
+                        <p class="pull-right">3 reviews</p>
+                        <p>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            4.0 stars
+                        </p>
+                    </div>
+                </div>
+
+                <div class="well">
+
+                    <div class="text-right">
+                        <a class="btn btn-success">Leave a Review</a>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            Anonymous
+                            <span class="pull-right">10 days ago</span>
+                            <p>This product was great in terms of quality. I would definitely buy another!</p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            Anonymous
+                            <span class="pull-right">12 days ago</span>
+                            <p>I've alredy ordered another one!</p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            Anonymous
+                            <span class="pull-right">15 days ago</span>
+                            <p>I've seen some better than this, but not at this price. I definitely recommend this item.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+	<div class="container"  id="colored-hdr">		
+	</div>
+
+	<div class="container">
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>© 2013 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+      </footer>
+     </div>
+         <script src="js/lib/external/bootstrap-datepicker.js"></script>
+     
+            	<script type="text/javascript">
+            		$(function () {
+                		$('#dp3').datepicker();
+            		});
+        		</script>
+
+</body>
+</html>

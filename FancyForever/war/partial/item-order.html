@@ -1,0 +1,116 @@
+	<div class="container">
+
+        <div class="row">
+
+            <div class="col-md-3">
+            	<form role="form">
+            		<div class="form-group">
+            	    	<label class="control-label">Delivery Date</label>
+    					<div class="input-group date" id="dp3" data-date="getDate()" data-date-format="mm-dd-yyyy">
+      						<input class="form-control" type="text" value="">
+      							<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+    					</div>
+            		</div>
+  					<div class="form-group">
+    					<label for="exampleInputEmail1">Email address</label>
+    						<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+  					</div>
+  					<div class="checkbox">
+    					<label>
+      						<input type="checkbox"> Flexible return date
+    					</label>
+  					</div>
+  					<button type="submit" class="btn btn-default">Checkout</button>
+				</form>
+            </div>
+
+            <div class="col-md-9">
+
+                <div class="thumbnail">
+                    <img class="img-responsive" src="{{selected_item.img}}" alt="">
+                    <div class="caption-full">
+                        <h4 class="pull-right">Rs: {{selected_item.price}}</h4>
+                        <h4><a href="#">{{selected_item.short_desc}}</a>
+                        </h4>
+                        <p>{{selected_item.long_desc}}</p>
+                    </div>
+                    <div class="ratings">
+                        <p class="pull-right">3 reviews</p>
+                        <p>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            4.0 stars
+                        </p>
+                    </div>
+                </div>
+
+                <div class="well">
+
+                    <div class="text-right">
+                        <a class="btn btn-success">Leave a Review</a>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            Anonymous
+                            <span class="pull-right">10 days ago</span>
+                            <p>This product was great in terms of quality. I would definitely buy another!</p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            Anonymous
+                            <span class="pull-right">12 days ago</span>
+                            <p>I've alredy ordered another one!</p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            Anonymous
+                            <span class="pull-right">15 days ago</span>
+                            <p>I've seen some better than this, but not at this price. I definitely recommend this item.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<script src="js/lib/external/bootstrap-datepicker.js"></script>
+<script type="text/javascript">
+	$(function () {
+   		$('#dp3').datepicker();
+	});
+
+</script>
+    
