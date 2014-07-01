@@ -9,15 +9,25 @@
 	<link rel="stylesheet" href="css/external/owl.carousel.css">
 	<link rel="stylesheet" href="css/external/owl.theme.css">
 	<link rel="stylesheet" href="css/external/owl.transitions.css">
+    <link rel="stylesheet" href="//mgcrea.github.io/angular-strap/styles/angular-motion.min.css">
+    <link rel="stylesheet" href="//mgcrea.github.io/angular-strap/styles/libraries.min.css">
+    <link rel="stylesheet" href="//mgcrea.github.io/angular-strap/styles/main.min.css">
     <link rel="stylesheet" href="css/ff/custom.css">
     
     <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>	
  	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-animate.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-route.js"></script>
+    <script src="http://code.angularjs.org/1.0.0rc10/angular-cookies-1.0.0rc10.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>                
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="//code.angularjs.org/1.2.16/angular-sanitize.min.js" data-semver="1.2.16"></script>
+    <script src="//mgcrea.github.io/angular-strap/dist/angular-strap.js" data-semver="v2.0.3"></script>
+    <script src="//mgcrea.github.io/angular-strap/dist/angular-strap.tpl.js" data-semver="v2.0.3"></script>
+    <!-- <script src="js/lib/external/angular-strap.js"></script>
+    <script src="js/lib/external/angular-strap.tpl.js"></script>-->
     <script src="js/lib/external/owl.carousel.js"></script>
+    <script src="js/lib/jquery.elevatezoom.js"></script>
     <script src="js/lib/ff/custom.js"></script>
   </head>
   
@@ -25,17 +35,12 @@
   <body  data-ng-controller="SimpleController">
 	<div ng-include src="'partial/header.html'"></div>
 	<div id="main">
-    	<!-- <div ng-include src="'partial/carousel.html'" ng-show="landingPageVisible"></div>	
-    	<div ng-include src="'partial/item-slider.html'" ng-show="landingPageVisible"></div>-->
     	<div data-ng-view></div>
     </div>
-    
-    <!-- <div ng-include src="'partial/filter-and-browse.html'" ng-show="browsePageVisible"></div>	
-
-    <div ng-include src="'partial/item-order.html'" ng-show="itemPageVisible"></div>-->
-        		
   	<div ng-include src="'partial/footer.html'"></div>	
-<script>
-</script>
   </body>
 </html>
+<!-- 
+http://1-dot-feisty-legend-510.appspot.com/search-item?output=json
+http://localhost:8888/search-item?output=json 
+-->

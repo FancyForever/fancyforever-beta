@@ -1,5 +1,5 @@
 	<!-- ITEMS browse -->
-	<div class="container">
+	<div class="container" id="browse-page">
 		<div class="row">
 			<div class="col-lg-3">
 				<ul class="list-group">
@@ -82,47 +82,22 @@
 			</div>
 			<div class="col-lg-9">
     			<div data-ng-repeat="item in items_list">
-        			<div ng-switch on="$index % 3">
-            			<div ng-switch-when="0">
-            				<div class="row">
-                				<div class="col-lg-4" ng-show="$index + 0 < items_list.length">
-                					<a ng-href="#order" ng-click="selectItem(items_list[$index+0])" class="thumbnail">
-	            						<img src="{{items_list[$index+0].img}}" alt="..." />
-            						</a>            
-            						<div class="caption">
-        								<h3>{{items_list[$index+0].short_desc}} - Rs: {{items_list[$index+0].price}}</h3>
-        								<p> {{items_list[$index+0].long_desc}}</p>
-        								<p><a ng-href="#order" ng-click="selectItem(items_list[$index+0])" class="btn btn-primary" role="button">Add to cart</a>
-        								</p>
-	      							</div>
-                				</div>
-                				<div class="col-lg-4" ng-show="$index + 1 < items_list.length">
-                					<a ng-href="#order" ng-click="selectItem(items_list[$index+1])" class="thumbnail">
-	            						<img src="{{items_list[$index+1].img}}" alt="..." />
-            						</a>            
-            						<div class="caption">
-        								<h3>{{items_list[$index+1].short_desc}} - Rs: {{items_list[$index+1].price}}</h3>
-        								<p> {{items_list[$index+1].long_desc}}</p>
-        								<p><a ng-href="#order" ng-click="selectItem(items_list[$index+1])" class="btn btn-primary" role="button">Add to cart</a>
-        								</p>
-	      							</div>                				
-                				</div>
-                				<div class="col-lg-4" ng-show="$index + 2< items_list.length">
-                					<a ng-href="#order" ng-click="selectItem(items_list[$index+2])" class="thumbnail">
-	            						<img src="{{items_list[$index+2].img}}" alt="..." />
-            						</a>            
-            						<div class="caption">
-        								<h3>{{items_list[$index+2].short_desc}} - Rs: {{items_list[$index+2].price}}</h3>
-        								<p> {{items_list[$index+2].long_desc}}</p>
-        								<p><a ng-href="#order" ng-click="selectItem(items_list[$index+2])" class="btn btn-primary" role="button">Add to cart</a>
-        								</p>
-	      							</div>
-                				</div>
-                			</div>
+                		<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                			<a ng-href="#order" ng-click="selectItem(item)" class="thumbnail">
+	            				<img src="{{item.img}}" alt="..." />
+            				</a>            
+            				<div class="caption">
+        						<strong>{{item.short_desc}} - Rs: {{item.price}}</strong>
+        						<p> {{item.long_desc}}</p>
+        						<!-- <p><a ng-click="addItem(item)" class="btn btn-danger" role="button" data-template="partial/cart-alert.html" data-placement="top" data-duration="3" data-animation="am-fade-and-slide-top" data-container="body" data-keyboard="true" bs-alert>Add to cart</a>-->
+        						<p><a ng-click="addItem(item)" class="label label-danger" data-toggle="modal" data-target="#myModal">Add to cart</a>
+        							<a ng-href="#order" ng-click="selectItem(item)" class="label label-primary" role="button">View detail</a>
+        						</p>
+        						<div ng-include src="'partial/order_page.html'"></div>
+	      					</div>
                 		</div>
-                	</div>
                 </div>
-			</div>
+            </div>
 		</div>
 	</div>
 	

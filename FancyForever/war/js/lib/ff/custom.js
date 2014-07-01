@@ -1,7 +1,7 @@
 /****************** Angular ********************/
 
-var ffApp = angular.module('ffApp', ['ngAnimate', 'ngRoute'])
-	.controller('SimpleController', function ($scope, $location) {
+var ffApp = angular.module('ffApp', ['ngAnimate', 'ngRoute', 'mgcrea.ngStrap'])
+	.controller('SimpleController', function ($scope) {
 	    $scope.items_list = [
 	                         {img: 'images/assets/owl1.jpg', price:4000, short_desc:'Beautiful Dress', long_desc:'Red gown for 8-10yrs'},
 	                         {img: 'images/assets/owl2.jpg', price:4000, short_desc:'Beautiful Dress', long_desc:'Red gown for 8-10yrs'},
@@ -24,6 +24,7 @@ var ffApp = angular.module('ffApp', ['ngAnimate', 'ngRoute'])
 		$scope.no_items = 0;
 		$scope.cost = 0;
 		$scope.cart_items = [];
+		
 		$scope.addItem = function(item) {
 			$scope.cart_items.push(item);
 			$scope.cost = 0;
@@ -43,6 +44,7 @@ var ffApp = angular.module('ffApp', ['ngAnimate', 'ngRoute'])
 		$scope.selectItem = function(item) {
 			$scope.selected_item = item;
 		};
+				
 	});
 
 ffApp.config(function($routeProvider) {
@@ -62,11 +64,47 @@ ffApp.config(function($routeProvider) {
 				controllerAs: 'SimpleController',
 				templateUrl: 'partial/item-order.html',
 			})
+		.when('/checkout', 
+			{
+				controllerAs: 'SimpleController',
+				templateUrl: 'partial/order_page.html',
+			})
 
 		.otherwise({ redirectTo: '/'});
 });
 
+ffApp.directive('myowlcarousel', function() {
+	return {
+		restrict: 'A',
+		link : function(scope, ele, attr) {
+			scope.$watch(attr.list, function(){
+				$(ele).owlCarousel({
+				    pagination : false,
+		    		navigation : true,
+		    		slideSpeed : 300,
+					paginationSpeed : 400,
+					autoPlay: true,
+                    itemsCustom : [
+                                   [0, 1],
+                                   [450, 2],
+                                   [700, 3],
+                                   [1000, 4],
+                                   ],
+                });
+			});
+		}
+	}
+});
 
+ffApp.directive('ngElevateZoom', function() {
+	  return {
+	    restrict: 'A',
+	    link: function(scope, element, attrs) {
+	      element.attr('data-zoom-image',attrs.zoomImage);
+	      $(element).elevateZoom();
+	    }
+	  };
+	});
 /*ffApp.controller('ExampleCtrl', function ($scope) {
         $scope.$on('event:google-plus-signin-success', function (event, authResult) {
           // User successfully authorized the G+ App!

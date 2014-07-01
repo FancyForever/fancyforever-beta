@@ -1,7 +1,7 @@
 <div class="container">
 			<table width="100%">
 				<tbody>
-					<tr ng-repeat="row in cart_items">
+					<tr ng-repeat="row in $parent.cart_items">
 						<td><img src="{{row.img}}" width="40px"/></td>
 						<td>{{row.short_desc}}</td>
 						<td>{{row.price}}</td>
@@ -14,6 +14,6 @@
 					</tr>
 				</tbody>
 			</table>
-        <button type="button" class="btn btn-default" ng-click="resetPartialContent()">Ignore</button>
-        <button type="button" class="btn btn-primary">Checkout</button>
+        <span type="button" class="label lable-primary" ng-click="resetPartialContent()">Ignore</span>
+        <span type="button" class="label label-danger">Checkout</span>
 </div>

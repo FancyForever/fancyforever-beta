@@ -3,29 +3,40 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Cart Summary</h4>
+        <h4 class="modal-title" id="myModalLabel"><span class="label label-success">Cart Value: </span><span class="badge badge-info">Rs. {{$parent.cost}}</span></h4>
       </div>
       <div class="modal-body">
-			<table width="100%">
-				<tbody>
-					<tr ng-repeat="row in cart_items">
-						<td><img src="{{row.img}}" width="40px"/></td>
-						<td>{{row.short_desc}}</td>
-						<td>{{row.price}}</td>
-						<td><a ng-click="deleteItem($index)">delete</a></td>
-					</tr>
-					<tr>
-						<td>Total item(s) {{no_items}}</td>
-						<td></td>
-						<td>Total cost: Rs. {{cost}}</td>
-					</tr>
-				</tbody>
-			</table>
-</div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Ignore</button>
-        <button type="button" class="btn btn-primary">Checkout</button>
-      </div>
+      	<div class="container-fluid" style="overflow:auto">
+      		<div ng-repeat="i in cart_items">
+      			<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="margin-top:5px">      				
+      				<img src="{{i.img}}" style="width:150px" class="img-responsive">
+      				<span class="label label-default">{{i.short_desc}}</span>
+      				<span class="label label-default">Rs. {{i.price}}</span>
+      				<a ng-click="deleteItem($index)" class="label label-primary">Delete</a>
+      			</div>
+      		</div>
+      	</div>
+			<!-- <div class="row">
+	      		<div ng-repeat="i in cart_items">
+      					<div class="col-lg-3">
+      						<img src="{{i.img}}" class="img-responsive">
+      					</div>
+      					<div class="col-lg-3">
+      						<span class="label label-default">{{i.short_desc}}</span>
+      					</div>
+      					<div class="col-lg-3">
+      						<span class="label label-default">{{i.price}}</span>
+      					</div>
+      					<div class="col-lg-3">
+      						<a ng-click="deleteItem($index)" class="label lable-primary">Delete</a>
+      					</div>
+      			</div>
+      			      		</div>-->
+	</div>
+    <div class="modal-footer">
+        <a class="label label-primary" data-dismiss="modal">Later</a>
+        <a ng-href="#checkout" class="label label-danger" role="button">Checkout</a>
+    </div>
     </div>
   </div>
 </div>
