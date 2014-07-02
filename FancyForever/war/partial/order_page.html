@@ -6,7 +6,7 @@
         <h4 class="modal-title" id="myModalLabel"><span class="label label-success">Cart Value: </span><span class="badge badge-info">Rs. {{$parent.cost}}</span></h4>
       </div>
       <div class="modal-body">
-      	<div class="container-fluid" style="overflow:auto">
+      	<div class="container-fluid" style="overflow:true">
       		<div ng-repeat="i in cart_items">
       			<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="margin-top:5px">      				
       				<img src="{{i.img}}" style="width:150px" class="img-responsive">
@@ -16,26 +16,10 @@
       			</div>
       		</div>
       	</div>
-			<!-- <div class="row">
-	      		<div ng-repeat="i in cart_items">
-      					<div class="col-lg-3">
-      						<img src="{{i.img}}" class="img-responsive">
-      					</div>
-      					<div class="col-lg-3">
-      						<span class="label label-default">{{i.short_desc}}</span>
-      					</div>
-      					<div class="col-lg-3">
-      						<span class="label label-default">{{i.price}}</span>
-      					</div>
-      					<div class="col-lg-3">
-      						<a ng-click="deleteItem($index)" class="label lable-primary">Delete</a>
-      					</div>
-      			</div>
-      			      		</div>-->
 	</div>
     <div class="modal-footer">
         <a class="label label-primary" data-dismiss="modal">Later</a>
-        <a ng-href="#checkout" class="label label-danger" role="button">Checkout</a>
+        <a href="#checkout" class="label label-danger" data-dismiss="modal">Checkout</a>
     </div>
     </div>
   </div>
