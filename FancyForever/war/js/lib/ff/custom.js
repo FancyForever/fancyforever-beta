@@ -123,10 +123,10 @@ ffApp.directive('myowlcarousel', function() {
 			scope.$watch(attr.list, function(){
 				$(ele).owlCarousel({
 				    pagination : false,
-		    		navigation : true,
+		    		navigation : false,
 		    		slideSpeed : 300,
 					paginationSpeed : 400,
-					autoPlay: true,
+					autoPlay: false,
                     itemsCustom : [
                                    [0, 1],
                                    [450, 2],

@@ -86,7 +86,11 @@ public class AddItem extends HttpServlet {
 				ServingUrlOptions options = ServingUrlOptions.Builder
 						.withBlobKey(blobKey);
 
-				images.put(key, imagesService.getServingUrl(options));
+				try {
+					images.put(key, imagesService.getServingUrl(options));
+				} catch (Exception e) {
+					
+				}
 			}
 		}
 

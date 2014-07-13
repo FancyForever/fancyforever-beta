@@ -1,23 +1,41 @@
-  	<div class="container" id="colored-hdr"></div>
+  	<div class="container" id="colored-hdr-1"></div>
   	<div class="container">
 		<div class="row">
-			<div class="lg-col-3"><img src="../images/frontend/logo/merged_logo.png" class="img-responsive"></div>
-				<div class="lg-col-9">
+				<div class="lg-col-12">
 					<nav class="navbar navbar-default" role="navigation" id="my-navbar">
 	  					<div class="container-fluid">
     
     					<!-- Brand and toggle get grouped for better mobile display -->
-    					<div class="navbar-header">
+    					<div class="navbar-header float-l">
       						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         						<span class="sr-only">Toggle navigation</span>
         						<span class="icon-bar"></span>
         						<span class="icon-bar"></span>
         						<span class="icon-bar"></span>
       						</button>
+      						<div class="float-l">
+      							<a class="navbar-brand" href="#"><img src="/images/frontend/logo/short_logo_trans.png" class="img-responsive" style="width:35px"></a>
+      						</div>
+      						<div class="hidden-sm hidden-xs float-l">
+      							<a class="navbar-brand" href="#"><img src="/images/frontend/logo/ff_logo_trans.png" class="img-responsive"></a>
+      						</div>
     					</div>    					
 
+    					<div class="float-r">
+       						<button type="button" 
+       								class="btn btn-lg btn-danger" 
+       								title="Cart Summary" 
+       								data-content="Total Items: {{$parent.no_items}}<br>Total Cost: Rs. {{$parent.cost}}" 
+       								data-template="partial/cart-alert.html" 
+       								data-animation="am-flip-x" 
+       								data-placement="bottom" bs-popover>
+       							<small><span class="glyphicon glyphicon-shopping-cart"></span>
+ 									<span class="badge badge-info">{{$parent.no_items}}</span></small>
+							</button>
+						</div>
+
     					<!-- Collect the nav links, forms, and other content for toggling -->
-    					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    					<div class="collapse navbar-collapse float-r" id="bs-example-navbar-collapse-1">
       						<ul class="nav navbar-nav">
         						<li><a href="#">Home</a></li>
         						<li><a href="#about">About</a></li>
@@ -32,41 +50,7 @@
             							<li><a href="#browse">Party Wear</a></li>
           							</ul>
         						</li>
-      						</ul>
-      						<form class="navbar-form navbar-left" role="search">
-        						<div class="form-group">
-          							<input type="text" class="form-control" ng-model="selected" data-animation="am-flip-x" ng-options="i.short_desc for i in items_list" placeholder="Search" bs-typeahead>
-        						</div>
-        						<a href="#order" type="submit" class="btn btn-default" ng-click="selectItem(selected)"><i class="glyphicon glyphicon-search"></i></a>
-      						</form>
-      						<ul class="nav navbar-nav navbar-right">
-        						<!-- <li class="dropdown">
-          							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          								<span class="label label-danger">
-          									<span class="glyphicon glyphicon-shopping-cart"></span><span class="badge badge-info">{{$parent.no_items}}</span>
-          								</span>
-          								<b class="caret"></b>
-          							</a>
-          							<ul class="dropdown-menu">
-            							<li><a href="#"><span class="badge badge-info">{{$parent.no_items}}</span> items</a></li>
-            							<li><a href="#">Price: <span class="badge badge-info">Rs. {{$parent.cost}}</span></a></li>
-            							<li class="divider"></li>
-            							<li><a href="#checkout">Checkout</a></li>
-          							</ul>
-        						</li>-->
-        						<li>
-        						<button type="button" 
-        								class="btn btn-lg btn-danger" 
-        								title="Cart Summary" 
-        								data-content="Total Items: {{$parent.no_items}}<br>Total Cost: Rs. {{$parent.cost}}" 
-        								data-template="partial/cart-alert.html" 
-        								data-animation="am-flip-x" 
-        								data-placement="bottom" bs-popover>
-        							<small><span class="glyphicon glyphicon-shopping-cart"></span>
-  									(<span class="badge badge-info">{{$parent.no_items}}</span>)</small>
-								</button>
-								</li>
-        						<li><a href="#">Contact Us</a></li>        
+	       						<li><a href="#">Contact Us</a></li>        
       						</ul>
     					</div><!-- /.navbar-collapse -->
   					</div><!-- /.container-fluid -->

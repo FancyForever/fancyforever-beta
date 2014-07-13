@@ -1,9 +1,9 @@
 	<!-- ITEMS browse -->
-	<div class="container-fluid hidden-lg" style="margin-bottom:20px">
+	<!-- <div class="container-fluid hidden-lg" style="margin-bottom:20px">
 		<button type="button" class="btn btn-lg btn-danger" data-template="partial/filter_aside.html" data-placement="left" data-animation="am-slide-left" bs-aside="aside" data-container="body">
 		Filter
 		</button>
-	</div>
+	</div> -->
 	<div class="container" id="browse-page">
 		<div class="row">		
 			<div class="col-lg-3 visible-lg">
@@ -11,17 +11,17 @@
 			</div>
 			<div class="col-lg-9">
     			<div data-ng-repeat="item in items_list">
-                		<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                			<a ng-href="#order" ng-click="selectItem(item)" class="thumbnail">
-	            				<img ng-src="{{item.img}}" class="lazy" alt="..." />
+                		<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 thumbnail">
+                			<div style="height:250px;">
+                			<a ng-href="#order" ng-click="selectItem(item)">
+	            				<img ng-src="{{item.img}}=s250" class="lazy" alt="..." />
             				</a>            
+            				</div>
             				<div class="caption">
-        						<strong>{{item.short_desc}} - Rs: {{item.price}}</strong>
+        						{{item.short_desc}} <br>
+        						Rs: {{item.price}}
         						<p> {{item.long_desc}}</p>
         						<!-- <p><a ng-click="addItem(item)" class="btn btn-danger" role="button" data-template="partial/cart-alert.html" data-placement="top" data-duration="3" data-animation="am-fade-and-slide-top" data-container="body" data-keyboard="true" bs-alert>Add to cart</a>-->
-        						<p><a ng-click="addItem(item)" class="label label-danger" data-toggle="modal" data-target="#myModal">Add to cart</a>
-        							<a ng-href="#order" ng-click="selectItem(item)" class="label label-primary" role="button">View detail</a>
-        						</p>
         						<div ng-include src="'partial/order_page.html'"></div>
 	      					</div>
                 		</div>

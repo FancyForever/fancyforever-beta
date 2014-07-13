@@ -1,3 +1,8 @@
+
+body {
+	padding-top:10px;
+}
+
 #colored-hdr {
 	background-color: #da4e4e;
 	height: 5px;
@@ -63,9 +68,9 @@ carousel .item { display: none; position: relative; -webkit-transition:.7s ease-
 		background: transparent;
 		border: none;
 		box-shadow: unset;
-		top: -95px;
+		/*top: -95px;
 		left: 100px;
-		width: 94%;
+		width: 94%;*/
 	}
 	
 	.navbar-nav > li > a {
