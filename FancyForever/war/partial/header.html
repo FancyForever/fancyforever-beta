@@ -14,7 +14,7 @@
         						<span class="icon-bar"></span>
         						<span class="icon-bar"></span>
       						</button>
-    					</div>
+    					</div>    					
 
     					<!-- Collect the nav links, forms, and other content for toggling -->
     					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -35,13 +35,12 @@
       						</ul>
       						<form class="navbar-form navbar-left" role="search">
         						<div class="form-group">
-          							<!-- <input type="text" class="form-control" placeholder="Search">-->
-          							<input type="text" class="form-control" ng-model="selected" ng-options="i.img for i in items_list" placeholder="Search" bs-typeahead>
+          							<input type="text" class="form-control" ng-model="selected" data-animation="am-flip-x" ng-options="i.short_desc for i in items_list" placeholder="Search" bs-typeahead>
         						</div>
-        						<button type="submit" class="btn btn-default">Submit</button>
+        						<a href="#order" type="submit" class="btn btn-default" ng-click="selectItem(selected)"><i class="glyphicon glyphicon-search"></i></a>
       						</form>
       						<ul class="nav navbar-nav navbar-right">
-        						<li class="dropdown">
+        						<!-- <li class="dropdown">
           							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
           								<span class="label label-danger">
           									<span class="glyphicon glyphicon-shopping-cart"></span><span class="badge badge-info">{{$parent.no_items}}</span>
@@ -54,7 +53,19 @@
             							<li class="divider"></li>
             							<li><a href="#checkout">Checkout</a></li>
           							</ul>
-        						</li>
+        						</li>-->
+        						<li>
+        						<button type="button" 
+        								class="btn btn-lg btn-danger" 
+        								title="Cart Summary" 
+        								data-content="Total Items: {{$parent.no_items}}<br>Total Cost: Rs. {{$parent.cost}}" 
+        								data-template="partial/cart-alert.html" 
+        								data-animation="am-flip-x" 
+        								data-placement="bottom" bs-popover>
+        							<small><span class="glyphicon glyphicon-shopping-cart"></span>
+  									(<span class="badge badge-info">{{$parent.no_items}}</span>)</small>
+								</button>
+								</li>
         						<li><a href="#">Contact Us</a></li>        
       						</ul>
     					</div><!-- /.navbar-collapse -->

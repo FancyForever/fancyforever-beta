@@ -4,20 +4,29 @@
 
             <div class="col-md-3">
             	<form role="form">
-            		<div class="form-group">
-            	    	<label class="control-label">Delivery Date</label>
-    					<div class="input-group date" id="dp3" data-date="getDate()" data-date-format="mm-dd-yyyy">
-      						<input class="form-control" type="text" value="">
-      							<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+           		  	<div class="form-group">
+    					<label class="control-label">
+    						<i class="glyphicon glyphicon-calendar"></i> Delivery
+    					</label><br>
+    					<div class="form-group">
+      						<input type="text" class="form-control" ng-model="delivery_date" data-min-date="{{today}}" placeholder="From" bs-datepicker>
     					</div>
-            		</div>
+    					<div ng-hide="checked">
+    					 <label class="control-label">
+    					 	<i class="glyphicon glyphicon-calendar"></i> Return pickup 
+    					 </label><br> 
+    					<div class="form-group">
+      						<input type="text" class="form-control" ng-model="return_date" data-min-date="{{delivery_date}}" placeholder="Until" bs-datepicker>
+    					</div>
+    					</div>
+  					</div>
   					<div class="form-group">
     					<label for="exampleInputEmail1">Email address</label>
     						<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
   					</div>
   					<div class="checkbox">
     					<label>
-      						<input type="checkbox"> Flexible return date
+      						<input type="checkbox" ng-model="checked"> Flexible return date
     					</label>
   					</div>
   					<button type="submit" class="btn btn-default">Checkout</button>
@@ -105,15 +114,3 @@
         </div>
 
     </div>
-
-<script src="js/lib/external/bootstrap-datepicker.js"></script>
-<script type="text/javascript">
-	$(function () {
-   		$('#dp3').datepicker();
-	});
-	$(function(){
-		$("#zoom_01").elevateZoom();
-	});
-
-</script>
-    
