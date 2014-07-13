@@ -1,26 +1,60 @@
 /****************** Angular ********************/
 
 var ffApp = angular.module('ffApp', ['ngAnimate', 'ngRoute', 'mgcrea.ngStrap', 'ngCookies'])
-	.controller('SimpleController', function ($scope, $route, $cookieStore) {
-	    $scope.items_list = [
-	                         {img: 'images/assets/owl1.jpg', price:4000, short_desc:'Beautiful Dress', long_desc:'Red gown for 8-10yrs'},
-	                         {img: 'images/assets/owl2.jpg', price:4000, short_desc:'Beautiful Dress', long_desc:'Red gown for 8-10yrs'},
-	                         {img: 'images/assets/owl3.jpg', price:4000, short_desc:'Beautiful Dress', long_desc:'Red gown for 8-10yrs'},
-	                         {img: 'images/assets/owl4.jpg', price:4000, short_desc:'Beautiful Dress', long_desc:'Red gown for 8-10yrs'},
-	                         {img: 'images/assets/owl5.jpg', price:4000, short_desc:'Beautiful Dress', long_desc:'Red gown for 8-10yrs'},
-	                         {img: 'images/assets/owl6.jpg', price:4000, short_desc:'Beautiful Dress', long_desc:'Red gown for 8-10yrs'},
-	                         {img: 'images/assets/owl7.jpg', price:4000, short_desc:'Beautiful Dress', long_desc:'Red gown for 8-10yrs'},
-	                         {img: 'images/assets/owl8.jpg', price:4000, short_desc:'Beautiful Dress', long_desc:'Red gown for 8-10yrs'},
-	                         {img: 'images/assets/owl1.jpg', price:4000, short_desc:'Beautiful Dress', long_desc:'Red gown for 8-10yrs'},
-	                         {img: 'images/assets/owl2.jpg', price:4000, short_desc:'Beautiful Dress', long_desc:'Red gown for 8-10yrs'},
-	                         {img: 'images/assets/owl3.jpg', price:4000, short_desc:'Beautiful Dress', long_desc:'Red gown for 8-10yrs'},
-	                         {img: 'images/assets/owl4.jpg', price:4000, short_desc:'Beautiful Dress', long_desc:'Red gown for 8-10yrs'},
-	                         {img: 'images/assets/owl5.jpg', price:4000, short_desc:'Beautiful Dress', long_desc:'Red gown for 8-10yrs'},
-	                         {img: 'images/assets/owl6.jpg', price:4000, short_desc:'Beautiful Dress', long_desc:'Red gown for 8-10yrs'},
-	                         {img: 'images/assets/owl7.jpg', price:4000, short_desc:'Beautiful Dress', long_desc:'Red gown for 8-10yrs'},
-	                         {img: 'images/assets/owl8.jpg', price:4000, short_desc:'Beautiful Dress', long_desc:'Red gown for 8-10yrs'}
-	          ];
+	.controller('SimpleController', function ($scope, $http, $route, $cookieStore) {
+		$scope.items_list = [];
+	    /*$scope.items_list = [
+	                         {img: 'images/assets/owl1.jpg', price:4000, short_desc:'Denim Jeans', long_desc:'Red gown for 8-10yrs'},
+	                         {img: 'images/assets/owl2.jpg', price:4000, short_desc:'T-Shirt', long_desc:'Red gown for 8-10yrs'},
+	                         {img: 'images/assets/owl3.jpg', price:4000, short_desc:'Salwar', long_desc:'Red gown for 8-10yrs'},
+	                         {img: 'images/assets/owl4.jpg', price:4000, short_desc:'Kurta', long_desc:'Red gown for 8-10yrs'},
+	                         {img: 'images/assets/owl5.jpg', price:4000, short_desc:'Skirt', long_desc:'Red gown for 8-10yrs'},
+	                         {img: 'images/assets/owl6.jpg', price:4000, short_desc:'Trouser', long_desc:'Red gown for 8-10yrs'},
+	                         {img: 'images/assets/owl7.jpg', price:4000, short_desc:'Shirt', long_desc:'Red gown for 8-10yrs'},
+	                         {img: 'images/assets/owl8.jpg', price:4000, short_desc:'Denim Jeans', long_desc:'Red gown for 8-10yrs'},
+	                         {img: 'images/assets/owl1.jpg', price:4000, short_desc:'T-Shirt', long_desc:'Red gown for 8-10yrs'},
+	                         {img: 'images/assets/owl2.jpg', price:4000, short_desc:'Salwar', long_desc:'Red gown for 8-10yrs'},
+	                         {img: 'images/assets/owl3.jpg', price:4000, short_desc:'Kurta', long_desc:'Red gown for 8-10yrs'},
+	                         {img: 'images/assets/owl4.jpg', price:4000, short_desc:'Skirt', long_desc:'Red gown for 8-10yrs'},
+	                         {img: 'images/assets/owl5.jpg', price:4000, short_desc:'Trouser', long_desc:'Red gown for 8-10yrs'},
+	                         {img: 'images/assets/owl6.jpg', price:4000, short_desc:'Shirt', long_desc:'Red gown for 8-10yrs'},
+	                         {img: 'images/assets/owl7.jpg', price:4000, short_desc:'Long Top', long_desc:'Red gown for 8-10yrs'},
+	                         {img: 'images/assets/owl8.jpg', price:4000, short_desc:'Long Top', long_desc:'Red gown for 8-10yrs'},
+	                         {img: 'images/assets/owl1.jpg', price:4000, short_desc:'T-Shirt', long_desc:'Red gown for 8-10yrs'},
+	                         {img: 'images/assets/owl2.jpg', price:4000, short_desc:'Salwar', long_desc:'Red gown for 8-10yrs'},
+	                         {img: 'images/assets/owl3.jpg', price:4000, short_desc:'Kurta', long_desc:'Red gown for 8-10yrs'},
+	                         {img: 'images/assets/owl4.jpg', price:4000, short_desc:'Skirt', long_desc:'Red gown for 8-10yrs'},
+	                         {img: 'images/assets/owl5.jpg', price:4000, short_desc:'Trouser', long_desc:'Red gown for 8-10yrs'},
+	                         {img: 'images/assets/owl6.jpg', price:4000, short_desc:'Shirt', long_desc:'Red gown for 8-10yrs'},
+	                         {img: 'images/assets/owl7.jpg', price:4000, short_desc:'Long Top', long_desc:'Red gown for 8-10yrs'},
+	                         {img: 'images/assets/owl8.jpg', price:4000, short_desc:'Long Top', long_desc:'Red gown for 8-10yrs'}
+	          ];*/
+	 
+		$http({method: 'GET', url: '/_items/all'}).
+	    success(function(data, status, headers, config) {
+	    	for (var i in data) {
+	    		var ji = {price: 4000};
+	    		for (var key in data[i]) {
+	    			var k = (key === 'primaryImg') 
+	    					? 'img' 
+	    					: (key === 'description') 
+	    						? 'long_desc' 
+	    						: (key === 'name') ? 'short_desc' : key;
+    				ji[k] = data[i][key];
+	    		}
+	    		$scope.items_list.push(ji);
+	    	}
+	    }).
+	    error(function(data, status, headers, config) {
+	    	alert("Service call failed" + status + headers);
+	    });
 	    
+	    /*** Date pickers **/
+	    $scope.today = new Date();
+	    $scope.delivery_date = undefined;
+	    $scope.return_date = undefined;
+
+	    /** Cart keeping **/
 		$scope.no_items = 0;
 		$scope.cost = 0;
 		$scope.cart_items = [];
@@ -114,6 +148,21 @@ ffApp.directive('ngElevateZoom', function() {
 	    }
 	  };
 	});
+
+ffApp.directive('lazy', function($timeout) {
+    return {
+      restrict: 'C',
+      link: function (scope, elm) {
+        $timeout(function() {
+          $(elm).lazyload({
+            effect: 'fadeIn',
+            effectspeed: 500,
+            'skip_invisible': false
+          });
+        }, 0);
+      }
+    };
+  });
 /*ffApp.controller('ExampleCtrl', function ($scope) {
         $scope.$on('event:google-plus-signin-success', function (event, authResult) {
           // User successfully authorized the G+ App!
