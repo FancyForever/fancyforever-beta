@@ -1,0 +1,25 @@
+P { text-align: center }
+
+#chatbox {
+	padding:2px;
+	font-family: cursive;
+	font-size: small;
+}
+
+.small {
+	font-size: small;
+}
+
+.center {
+	text-align: center;
+}
+
+.error {
+	color:red;
+}
+
+.validations {
+	border:1px solid red;
+	background-color:#fff1f1;
+	font-size:	
+}

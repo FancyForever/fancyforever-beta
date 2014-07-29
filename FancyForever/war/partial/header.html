@@ -50,7 +50,7 @@
             							<li><a href="#browse">Party Wear</a></li>
           							</ul>
         						</li>
-	       						<li><a href="#">Contact Us</a></li>        
+	       						<li><a id="contactUsId" title="Contact Us">Contact Us</a></li>        
       						</ul>
     					</div><!-- /.navbar-collapse -->
   					</div><!-- /.container-fluid -->
@@ -58,3 +58,12 @@
 			</div>
 		</div>
 	</div>
+	<link type="text/css" rel="stylesheet" href="/css/colorbox.css" media="all" />
+	<script src="/js/lib/jquery.colorbox.js?v=1.0"></script>
+	<script>
+	    $("#contactUsId").click(function() {
+	        var href = "/contact.html?now=" + new Date();
+	        $("#contactUsId").colorbox({iframe:true, innerWidth:"420px", innerHeight:"420px", overlayClose:false, href:href});
+	    });
+  	</script>
+	

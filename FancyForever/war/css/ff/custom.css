@@ -3,6 +3,10 @@ body {
 	padding-top:10px;
 }
 
+a {
+	cursor: pointer;
+}
+
 #colored-hdr {
 	background-color: #da4e4e;
 	height: 5px;
