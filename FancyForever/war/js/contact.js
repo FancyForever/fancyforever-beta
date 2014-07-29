@@ -61,7 +61,8 @@ function validateChatInput() {
 			message : text
 		}, function(data) {
 			alert("Message Sent");
-			this.parent.$.colorbox.close();
+			parent.$.colorbox.close();
+			return;
 		}).fail(function() {
 			document.getElementById("contactUsValidationErrorMsgDiv").innerHTML = "<img src='/images/error.gif'><span style='color:red;padding-left:5px;'>Oops!! Failed to contact server. Please re-try after sometime.</span>";
 			document.getElementById("contactUsValidationErrorMsgDiv").style.display = "";
