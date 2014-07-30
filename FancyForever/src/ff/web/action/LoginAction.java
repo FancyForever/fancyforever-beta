@@ -20,12 +20,10 @@ public class LoginAction extends HttpServlet {
 			throws ServletException, IOException {
 
 		String thisURL = req.getParameter("curURL");
-		System.out.println(thisURL);
-		String thisURL1 = req.getRequestURI();
-		System.out.println(thisURL1);
+		if(thisURL == null)
+			thisURL = "/";
 		String loginURL = userService.createLoginURL(thisURL);
-
-		req.getRequestDispatcher(loginURL).forward(req, resp);
+		resp.sendRedirect(loginURL);
 	}
 
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
