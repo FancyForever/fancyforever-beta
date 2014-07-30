@@ -51,6 +51,7 @@
           							</ul>
         						</li>
 	       						<li><a id="contactUsId" title="Contact Us">Contact Us</a></li>        
+	       						<li><a id="loginId" title="Login">Login</a></li>
       						</ul>
     					</div><!-- /.navbar-collapse -->
   					</div><!-- /.container-fluid -->
@@ -64,6 +65,12 @@
 	    $("#contactUsId").click(function() {
 	        var href = "/contact.html?now=" + new Date();
 	        $("#contactUsId").colorbox({iframe:true, innerWidth:"420px", innerHeight:"420px", overlayClose:false, href:href});
+	    });
+
+	    $("#loginId").click(function() {
+	    	var pathname = window.location.pathname;
+	        var href = "/login?curURL=" + pathname + "&now=" + new Date();
+	        window.location = href;
 	    });
   	</script>
 	
